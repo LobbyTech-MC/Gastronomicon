@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import io.github.schntgaispock.gastronomicon.core.slimefun.GastroStacks;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import lombok.Getter;
+import me.profelements.dynatech.registries.Items;
 
 @Getter
 public class DynaTechSetup {
@@ -35,8 +36,8 @@ public class DynaTechSetup {
 
     public static void setup() {
         // Assume DynaTech is installed, and the config option is enabled
-        gc = SlimefunItem.getById("GROWTH_CHAMBER");
-        gc2 = SlimefunItem.getById("GROWTH_CHAMBER_MK2");
+        gc = SlimefunItem.getByItem(Items.GROWTH_CHAMBER.stack());
+        gc2 = SlimefunItem.getByItem(Items.GROWTH_CHAMBER_MK2.stack());
 
         register(60, GastroStacks.RICE.asQuantity(3));
         register(60, GastroStacks.QUINOA.asQuantity(3));

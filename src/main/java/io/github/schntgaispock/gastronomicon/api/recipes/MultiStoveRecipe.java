@@ -38,4 +38,9 @@ public class MultiStoveRecipe extends ShapelessGastroRecipe {
         this(ingredients, null, tools, Temperature.MEDIUM, outputs);
     }
 
+	public Temperature getTemperature() {
+		// TODO Auto-generated method stub
+		return temperature;
+	}
+
 }

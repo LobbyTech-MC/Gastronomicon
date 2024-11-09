@@ -953,7 +953,7 @@ public class GastroStacks {
         final PotionMeta meta = (PotionMeta) PEANUT_BUTTER.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.THICK));
         meta.setColor(Color.fromRGB(0xbf7715));
-        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         PEANUT_BUTTER.setItemMeta(meta);
     }
 
@@ -994,7 +994,7 @@ public class GastroStacks {
     static {
         final PotionMeta meta = (PotionMeta) KETCHUP.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.WATER));
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.RED);
         KETCHUP.setItemMeta(meta);
     }
@@ -1032,7 +1032,7 @@ public class GastroStacks {
         final PotionMeta meta = (PotionMeta) SOY_SAUCE.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.MUNDANE));
         meta.setColor(Color.fromRGB(0x1d0a03));
-        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         SOY_SAUCE.setItemMeta(meta);
     }
 
@@ -1065,7 +1065,7 @@ public class GastroStacks {
         .texture(HeadTextures.SANDWICH_RED_OCHRE)
         .name("花生果酱三明治")
         .hunger(8)
-        .effects(FoodEffect.chanceOf(FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 90), 0.5))
+        .effects(FoodEffect.chanceOf(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 90), 0.5))
         .build();
 
     public static final FoodItemStack MARMALADE_SANDWICH = new FoodItemStackBuilder()
@@ -1073,7 +1073,7 @@ public class GastroStacks {
         .texture(HeadTextures.SANDWICH_ORANGE)
         .name("果酱三明治")
         .hunger(8)
-        .effects(FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 30))
+        .effects(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 30))
         .build();
 
     public static final FoodItemStack BAKED_BEANS_AND_TOAST = new FoodItemStackBuilder()
@@ -1081,7 +1081,7 @@ public class GastroStacks {
         .texture(HeadTextures.TOAST_ORANGE)
         .name("烤豆吐司")
         .hunger(8)
-        .effects(FoodEffect.chanceOf(FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 90), 0.5))
+        .effects(FoodEffect.chanceOf(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 90), 0.5))
         .build();
 
     public static final FoodItemStack AVOCADO_TOAST = new FoodItemStackBuilder()
@@ -1089,7 +1089,7 @@ public class GastroStacks {
         .texture(HeadTextures.TOAST_GREEN)
         .name("牛油果吐司")
         .hunger(8)
-        .effects(FoodEffect.chanceOf(FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 90), 0.5))
+        .effects(FoodEffect.chanceOf(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 90), 0.5))
         .build();
 
     public static final FoodItemStack TUNA_SANDWICH = new FoodItemStackBuilder()
@@ -1097,7 +1097,7 @@ public class GastroStacks {
         .texture(HeadTextures.SANDWICH_RED_GREEN)
         .name("金枪鱼三明治")
         .hunger(8)
-        .effects(FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 30))
+        .effects(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 30))
         .build();
 
     public static final FoodItemStack BREAKFAST_SANDWICH = new FoodItemStackBuilder()
@@ -1234,7 +1234,7 @@ public class GastroStacks {
         .texture(HeadTextures.PASTA_GREEN)
         .name("金枪鱼砂锅")
         .hunger(14, 1)
-        .effects(FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20, 1))
+        .effects(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 20, 1))
         .build();
 
     public static final FoodItemStack CHICKEN_RAVIOLI = new FoodItemStackBuilder()
@@ -1332,7 +1332,7 @@ public class GastroStacks {
         .texture(HeadTextures.SOUP)
         .name("豌豆汤")
         .hunger(10, 1.75)
-        .effects(FoodEffect.removePotionEffect(PotionEffectType.CONFUSION))
+        .effects(FoodEffect.removePotionEffect(PotionEffectType.NAUSEA))
         .build();
 
     public static final FoodItemStack HAM_AND_SPLIT_PEA_SOUP = new FoodItemStackBuilder()
@@ -1340,7 +1340,7 @@ public class GastroStacks {
         .texture(HeadTextures.SOUP)
         .name("火腿豌豆汤")
         .hunger(14, 1.75)
-        .effects(FoodEffect.removePotionEffect(PotionEffectType.CONFUSION))
+        .effects(FoodEffect.removePotionEffect(PotionEffectType.NAUSEA))
         .build();
 
     public static final FoodItemStack LENTIL_SOUP = new FoodItemStackBuilder()
@@ -1526,7 +1526,7 @@ public class GastroStacks {
         .texture(HeadTextures.STEW)
         .name("印度牛油鸡")
         .hunger(7)
-        .effects(FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 30))
+        .effects(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 30))
         .build();
 
     // Rice
@@ -1536,7 +1536,7 @@ public class GastroStacks {
         .texture(HeadTextures.STEW)
         .name("印度牛油鸡配大蒜烤饼")
         .hunger(12)
-        .effects(FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 30, 1))
+        .effects(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 30, 1))
         .build();
 
     public static final FoodItemStack SHRIMP_FRIED_RICE = new FoodItemStackBuilder()
@@ -1551,7 +1551,7 @@ public class GastroStacks {
         .texture(HeadTextures.RICE_BROWN)
         .name("咖哩饭")
         .hunger(10)
-        .effects(FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 30))
+        .effects(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 30))
         .build();
 
     public static final FoodItemStack RICE_OMELETTE = new FoodItemStackBuilder()
@@ -2031,7 +2031,7 @@ public class GastroStacks {
         )
         .build();
     static {
-        ENCHANTED_GOLDEN_CARROT.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
+        ENCHANTED_GOLDEN_CARROT.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
         ENCHANTED_GOLDEN_CARROT.addItemFlags(ItemFlag.HIDE_ENCHANTS);
     }
 
@@ -2046,7 +2046,7 @@ public class GastroStacks {
             FoodEffect.positivePotionEffect(PotionEffectType.REGENERATION, 120))
         .build();
     static {
-        ENCHANTED_GLISTERING_MELON_SLICE.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
+        ENCHANTED_GLISTERING_MELON_SLICE.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
         ENCHANTED_GLISTERING_MELON_SLICE.addItemFlags(ItemFlag.HIDE_ENCHANTS);
     }
 
@@ -2070,7 +2070,7 @@ public class GastroStacks {
     static {
         final PotionMeta meta = (PotionMeta) BUBBLE_MILK_TEA.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.WATER));
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.MAROON);
         BUBBLE_MILK_TEA.setItemMeta(meta);
     }
@@ -2084,7 +2084,7 @@ public class GastroStacks {
     static {
         final PotionMeta meta = (PotionMeta) CANTALOUPE_BUBBLE_TEA.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.WATER));
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.ORANGE);
         CANTALOUPE_BUBBLE_TEA.setItemMeta(meta);
     }
@@ -2098,7 +2098,7 @@ public class GastroStacks {
     static {
         final PotionMeta meta = (PotionMeta) HONEYDEW_MELON_BUBBLE_TEA.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.WATER));
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.GREEN);
         HONEYDEW_MELON_BUBBLE_TEA.setItemMeta(meta);
     }
@@ -2112,7 +2112,7 @@ public class GastroStacks {
     static {
         final PotionMeta meta = (PotionMeta) APPLE_BUBBLE_TEA.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.WATER));
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.LIME);
         APPLE_BUBBLE_TEA.setItemMeta(meta);
     }
@@ -2125,14 +2125,14 @@ public class GastroStacks {
         .name("红酒")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 60, 2),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 60, 2),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) RED_WINE.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.WATER));
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.MAROON);
         RED_WINE.setItemMeta(meta);
     }
@@ -2143,14 +2143,14 @@ public class GastroStacks {
         .name("啤酒")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 60, 2),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 60, 2),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) BEER.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.WATER));
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.ORANGE);
         BEER.setItemMeta(meta);
     }
@@ -2161,14 +2161,14 @@ public class GastroStacks {
         .name("苹果酒")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 60, 2),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 60, 2),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) APPLE_CIDER.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.WATER));
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.YELLOW);
         APPLE_CIDER.setItemMeta(meta);
     }
@@ -2179,14 +2179,14 @@ public class GastroStacks {
         .name("米酒")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 60, 2),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 60, 2),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) RICE_WINE.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.WATER));
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.WHITE);
         RICE_WINE.setItemMeta(meta);
     }
@@ -2197,14 +2197,14 @@ public class GastroStacks {
         .name("伏特加")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 120, 4),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 120, 4),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) VODKA.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.WATER));
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.WHITE);
         VODKA.setItemMeta(meta);
     }
@@ -2215,14 +2215,14 @@ public class GastroStacks {
         .name("朗姆酒")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 120, 4),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 120, 4),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) RUM.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.WATER));
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.RED);
         RUM.setItemMeta(meta);
     }
@@ -2233,14 +2233,14 @@ public class GastroStacks {
         .name("威士忌")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 120, 4),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 120, 4),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) WHISKEY.getItemMeta();
         meta.setBasePotionData(new PotionData(PotionType.WATER));
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.ORANGE);
         WHISKEY.setItemMeta(meta);
     }

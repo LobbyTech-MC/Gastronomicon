@@ -6,7 +6,6 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 /**
@@ -15,13 +14,18 @@ import lombok.ToString;
  * @author SchnTgaiSpock
  */
 @Getter
-@RequiredArgsConstructor
+
 @ToString
 public abstract class RecipeComponent<T> {
 
     protected final T component;
 
-    /**
+    public RecipeComponent(T component) {
+		// TODO Auto-generated constructor stub
+    	this.component = component;
+	}
+
+	/**
      * Whether or not this component matches an item
      * @param item The item to check
      * @return If the item matched
@@ -56,4 +60,9 @@ public abstract class RecipeComponent<T> {
         }
 
     };
+
+	public T getComponent() {
+		// TODO Auto-generated method stub
+		return component;
+	}
 }

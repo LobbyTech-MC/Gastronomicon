@@ -25,11 +25,13 @@ import net.kyori.adventure.text.Component;
 
 public class GastroFood extends SimpleGastroFood {
 
-    private static final @Getter Set<String> gastroFoodIds = new HashSet<>();
+    private static final Set<String> gastroFoodIds = new HashSet<>();
 
     private final @Getter FoodItemStack item;
     private final @Getter boolean perfect;
     private final ItemStack recipeDisplayOutput;
+
+	private GastroRecipe recipe;
 
     public GastroFood(Research research, ItemGroup group, FoodItemStack item, GastroRecipe recipe,
         ItemStack topRightDisplayItem, ItemStack recipeDisplayOutput, boolean perfect) {
@@ -38,6 +40,7 @@ public class GastroFood extends SimpleGastroFood {
         this.item = item;
         this.perfect = perfect;
         this.recipeDisplayOutput = recipeDisplayOutput;
+        this.recipe = recipe;
     }
 
     @Override
@@ -69,11 +72,11 @@ public class GastroFood extends SimpleGastroFood {
             }
 
             final Player p = e.getPlayer();
-            for (FoodEffect effect : food.getItem().getEffects()) {
-                effect.apply(p, food.isPerfect());
+            for (org.bukkit.inventory.meta.components.FoodComponent.FoodEffect effect : food.getItem().getItemMeta().getFood().getEffects()) {
+                ((FoodEffect) effect).apply(p, food.isPerfect());
             }
-            p.setFoodLevel(Math.min(p.getFoodLevel() + food.getItem().getHunger(), 20));
-            p.setSaturation((float) Math.min(p.getSaturation() + food.getItem().getSaturation(),
+            p.setFoodLevel(Math.min(p.getFoodLevel() + (int) food.getItem().getItemMeta().getFood().getNutrition(), 20));
+            p.setSaturation((float) Math.min(p.getSaturation() + food.getItem().getItemMeta().getFood().getSaturation(),
                 p.getFoodLevel()));
             if (getGastroRecipe().getInputs().getContainer().getComponent() instanceof final ItemStack stack) {
                 p.getInventory().addItem(stack); // It should always be an itemstack anyways
@@ -84,7 +87,12 @@ public class GastroFood extends SimpleGastroFood {
         e.getItem().subtract();
     }
 
-    /**
+    public GastroRecipe getGastroRecipe() {
+		// TODO Auto-generated method stub
+		return recipe;
+	}
+
+	/**
      * Will create a hidden perfect version of itself if not already perfect.
      */
     @Override
@@ -97,5 +105,15 @@ public class GastroFood extends SimpleGastroFood {
                     .register(addon);
         }
     }
+
+	public boolean isPerfect() {
+		// TODO Auto-generated method stub
+		return perfect;
+	}
+
+	public static Set<String> getGastroFoodIds() {
+		// TODO Auto-generated method stub
+		return gastroFoodIds;
+	}
 
 }

@@ -7,7 +7,7 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class GastroResearch {
 
-    private final int startKey = 645750;
+    private final static int startKey = 645750;
 
     public static final Research WOODEN_TOOLS = new Research(Gastronomicon.key("wooden_tools"), startKey, "基础工具", 10);
     public static final Research STEEL_TOOLS = new Research(Gastronomicon.key("steel_tools"), startKey + 1, "钢制工具", 15);

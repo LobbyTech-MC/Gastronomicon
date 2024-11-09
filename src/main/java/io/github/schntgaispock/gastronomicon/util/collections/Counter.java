@@ -192,4 +192,9 @@ public class Counter<T> {
         return map.values().stream();
     }
 
+	public double getTotal() {
+		// TODO Auto-generated method stub
+		return total;
+	}
+
 }

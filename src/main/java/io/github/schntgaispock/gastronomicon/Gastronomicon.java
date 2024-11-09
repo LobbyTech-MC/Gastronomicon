@@ -11,6 +11,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
+import org.jetbrains.annotations.NotNull;
 
 import io.github.mooy1.infinitylib.core.AbstractAddon;
 import io.github.mooy1.infinitylib.core.AddonConfig;
@@ -105,8 +106,8 @@ public class Gastronomicon extends AbstractAddon {
             }
         }
 
-        playerData = new AddonConfig("player.yml");
-        customFood = new AddonConfig("custom-food.yml");
+        setPlayerData(new AddonConfig("player.yml"));
+        setCustomFood(new AddonConfig("custom-food.yml"));
 
         TreeStructure.loadTrees();
     }
@@ -123,7 +124,12 @@ public class Gastronomicon extends AbstractAddon {
         return new NamespacedKey(Gastronomicon.getInstance(), name);
     }
 
-    public static boolean isPluginEnabled(String name) {
+    static @NotNull
+	public Gastronomicon getInstance() {
+		return instance;
+	}
+
+	public static boolean isPluginEnabled(String name) {
         return getInstance().getServer().getPluginManager().isPluginEnabled(name);
     }
 
@@ -176,4 +182,25 @@ public class Gastronomicon extends AbstractAddon {
             .asComponent();
         player.sendMessage(text);
     }
+
+	public AddonConfig getPlayerData() {
+		return playerData;
+	}
+
+	public void setPlayerData(AddonConfig playerData) {
+		this.playerData = playerData;
+	}
+
+	public AddonConfig getCustomFood() {
+		return customFood;
+	}
+
+	public void setCustomFood(AddonConfig customFood) {
+		this.customFood = customFood;
+	}
+
+	public Scheduler getScheduler() {
+		// TODO Auto-generated method stub
+		return scheduler;
+	}
 }

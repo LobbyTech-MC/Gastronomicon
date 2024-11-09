@@ -5,12 +5,13 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 
 import io.github.schntgaispock.gastronomicon.Gastronomicon;
 import io.github.schntgaispock.gastronomicon.api.recipes.GastroRecipe;
@@ -22,7 +23,6 @@ import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponen
 import io.github.thebusybiscuit.slimefun4.libraries.dough.common.CommonPatterns;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 
@@ -30,7 +30,6 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 @SuppressWarnings("deprecation")
 public class MultiStove extends GastroWorkstation implements EnergyNetComponent {
 
-    @RequiredArgsConstructor
     public enum Temperature {
         LOW(TEMPERATURE_BUTTON_LOW, "低"),
         MEDIUM(TEMPERATURE_BUTTON_MEDIUM, "中"),
@@ -40,7 +39,13 @@ public class MultiStove extends GastroWorkstation implements EnergyNetComponent 
 
         private final @Getter String text;
 
-        public static @Nonnull Temperature fromText(String text) {
+        Temperature(ItemStack item, String text) {
+			// TODO Auto-generated constructor stub
+        	this.item = item;
+        	this.text = text;
+		}
+
+		public static @Nonnull Temperature fromText(String text) {
             for (Temperature temp : values()) {
                 if (temp.getText().equals(text)) {
                     return temp;
@@ -49,7 +54,12 @@ public class MultiStove extends GastroWorkstation implements EnergyNetComponent 
             throw new IllegalArgumentException(text + " is now a valid value");
         }
 
-        public @Nullable Temperature next() {
+        String getText() {
+			// TODO Auto-generated method stub
+			return text;
+		}
+
+		public @Nullable Temperature next() {
             if (ordinal() == values().length - 1) {
                 return null;
             }
@@ -64,6 +74,11 @@ public class MultiStove extends GastroWorkstation implements EnergyNetComponent 
 
             return values()[ordinal() - 1];
         }
+
+        public ItemStack getItem() {
+			// TODO Auto-generated method stub
+			return item;
+		}
     }
 
     public static final ItemStack TEMPERATURE_BUTTON_LOW = new CustomItemStack(
@@ -176,5 +191,16 @@ public class MultiStove extends GastroWorkstation implements EnergyNetComponent 
         final int charge = getCharge(b.getLocation());
         setCharge(b.getLocation(), charge - getEnergyPerUse());
     }
+
+	private int getEnergyPerUse() {
+		// TODO Auto-generated method stub
+		return energyPerUse;
+	}
+
+	@Override
+	public int getCapacity() {
+		// TODO Auto-generated method stub
+		return capacity;
+	}
 
 }

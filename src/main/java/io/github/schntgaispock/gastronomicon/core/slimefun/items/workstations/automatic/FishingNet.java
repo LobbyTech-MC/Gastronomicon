@@ -162,4 +162,26 @@ public class FishingNet extends SlimefunItem implements InventoryBlock, MachineP
         StorageCacheUtils.setData(b.getLocation(), "water_logged", String.valueOf(isWaterLogged));
         return isWaterLogged;
     }
+
+	public String getMachineIdentifier() {
+		return machineIdentifier;
+	}
+
+	public int[] getInputSlots() {
+		return inputSlots;
+	}
+
+	public int[] getOutputSlots() {
+		return outputSlots;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
+	@Override
+	public MachineProcessor<CraftingOperation> getMachineProcessor() {
+		// TODO Auto-generated method stub
+		return machineProcessor;
+	}
 }

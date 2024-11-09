@@ -68,4 +68,12 @@ public class Fermenter extends GastroWorkstation {
         ChunkPDC.set(b, GastroKeys.FERMENTER_WATER, water - getMbPerCraft());
     }
 
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public int getMbPerCraft() {
+		return mbPerCraft;
+	}
+
 }

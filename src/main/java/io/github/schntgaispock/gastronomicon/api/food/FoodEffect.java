@@ -6,8 +6,6 @@ import java.util.logging.Level;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.guizhanss.guizhanlib.minecraft.helper.inventory.ItemStackHelper;
-import net.guizhanss.guizhanlib.minecraft.helper.potion.PotionEffectTypeHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -23,19 +21,18 @@ import org.bukkit.util.Vector;
 import io.github.schntgaispock.gastronomicon.Gastronomicon;
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.food.GastroFood;
 import io.github.schntgaispock.gastronomicon.util.NumberUtil;
-import io.github.schntgaispock.gastronomicon.util.item.ItemUtil;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
+import net.guizhanss.guizhanlib.minecraft.helper.inventory.ItemStackHelper;
+import net.guizhanss.guizhanlib.minecraft.helper.potion.PotionEffectTypeHelper;
 
 /**
  * Represents an effect that activates when a player eats a {@link GastroFood}
  * 
  * @author SchnTgaiSpock
  */
-@RequiredArgsConstructor
 @SuppressWarnings("deprecation")
 @ToString(of = "description")
 @EqualsAndHashCode(of = "description")
@@ -60,7 +57,14 @@ public class FoodEffect {
         this(description, description, application);
     }
 
-    /**
+    public FoodEffect(String description, String perfectDescription, BiConsumer<Player, Boolean> application) {
+		// TODO Auto-generated constructor stub
+    	this.description = description;
+    	this.perfectDescription = perfectDescription;
+    	this.application = application;
+	}
+
+	/**
      * Returns a FoodEffect that has a chance of activating
      * 
      * @param effect
@@ -82,7 +86,17 @@ public class FoodEffect {
             });
     }
 
-    /**
+    public String getPerfectDescription() {
+		// TODO Auto-generated method stub
+		return perfectDescription;
+	}
+
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return description;
+	}
+
+	/**
      * Returns a FoodEffect that heals the player.
      * 
      * @param health

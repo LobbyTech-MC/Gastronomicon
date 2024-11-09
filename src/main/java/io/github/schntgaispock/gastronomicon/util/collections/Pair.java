@@ -1,15 +1,15 @@
 package io.github.schntgaispock.gastronomicon.util.collections;
 
-
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
 public class Pair<T, U> {
 
     private T first;
     private U second;
 
-    public T first() { return first; }
+	public Pair(T first, U second) {
+		this.first = first;
+		this.second = second;
+	}
+	public T first() { return first; }
     public void first(T first) { this.first = first; }
     public U second() { return second; }
     public void second(U second) { this.second = second; }
@@ -20,7 +20,6 @@ public class Pair<T, U> {
     }
 
     public static <T, U> Pair<T, U> of(T first, U second) {
-        return new Pair<>(first, second);
+        return new Pair<T, U>(first, second);
     }
-
 }

@@ -119,4 +119,14 @@ public class FoodItemStack extends SlimefunItemStack {
             GastroTheme.PERFECT_FOOD.getColor() + ChatUtils.removeColorCodes(getDisplayName()), hunger, saturation,
             effects, perfectLore, perfectLore, true);
     }
+
+	private String getTexture() {
+		// TODO Auto-generated method stub
+		return texture;
+	}
+
+	private boolean isPerfect() {
+		// TODO Auto-generated method stub
+		return perfect;
+	}
 }

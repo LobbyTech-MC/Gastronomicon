@@ -18,7 +18,6 @@ import lombok.ToString;
  * given distribution," in IEEE Transactions on Software Engineering
  */
 @ToString(of = "drops")
-@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 public class LootTable<T> {
 
     private final List<T> drops;
@@ -88,7 +87,15 @@ public class LootTable<T> {
 
     }
 
-    public static <T, U> LootTableBuilder<T> builder(Class<T> type) {
+    public LootTable(List<T> drops, int totalWeight, int[] prob, int[] alias) {
+		// TODO Auto-generated constructor stub
+    	this.drops = drops;
+    	this.totalWeight = totalWeight;
+    	this.prob = prob;
+    	this.alias = alias;
+	}
+
+	public static <T, U> LootTableBuilder<T> builder(Class<T> type) {
         return new LootTableBuilder<T>();
     }
 

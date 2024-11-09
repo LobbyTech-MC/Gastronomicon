@@ -57,4 +57,9 @@ public class FruitingSeed extends SimpleSeed {
         return false;
     }
 
+	public SlimefunItem getFruitingBody() {
+		// TODO Auto-generated method stub
+		return fruitingBody;
+	}
+
 }

@@ -58,5 +58,13 @@ public class Refrigerator extends GastroWorkstation implements EnergyNetComponen
         final int charge = getCharge(b.getLocation());
         setCharge(b.getLocation(), charge - getEnergyPerUse());
     }
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public int getEnergyPerUse() {
+		return energyPerUse;
+	}
     
 }

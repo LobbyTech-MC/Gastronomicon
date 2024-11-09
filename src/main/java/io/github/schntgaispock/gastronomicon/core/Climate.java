@@ -21,7 +21,11 @@ public enum Climate {
 
     private final @Getter ItemStack displayItem;
 
-    public static Climate of(Biome b) {
+    Climate(CustomItemStack displayItem) {
+		this.displayItem = displayItem;
+	}
+
+	public static Climate of(Biome b) {
         return switch (b) {
             case BADLANDS, WOODED_BADLANDS, ERODED_BADLANDS, DESERT, 
                 SAVANNA, WINDSWEPT_SAVANNA, SAVANNA_PLATEAU -> Climate.DRY;

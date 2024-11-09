@@ -80,4 +80,14 @@ public class GroupRecipeComponent extends RecipeComponent<Set<ItemStack>> {
         return id.hashCode();
     }
 
+	public Set<ItemStack> getComponent() {
+		// TODO Auto-generated method stub
+		return component;
+	}
+
+	public NamespacedKey getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
 }

@@ -39,7 +39,16 @@ public abstract class GastroRecipe {
         SHAPED(new CustomItemStack(Material.CRAFTING_TABLE, "&7该配方为 &f有序配方")),
         SHAPELESS(new CustomItemStack(Material.BARREL, "&7该配方为 &f无序配方"));
 
-        private final ItemStack guideItem;
+        RecipeShape(CustomItemStack guideItem) {
+			// TODO Auto-generated constructor stub
+        	this.guideItem = guideItem;
+		}
+
+		public ItemStack getGuideItem() {
+			return guideItem;
+		}
+
+		private final ItemStack guideItem;
     }
 
     /**
@@ -59,11 +68,21 @@ public abstract class GastroRecipe {
      * recipe.
      */
     @Getter
-    @RequiredArgsConstructor
     public enum RecipeMatchResult {
         SUCCESS(true, true), NO_RESEARCH(true, false), NO_MATCH(false, false), OTHER(false, false);
 
-        private final boolean match;
+        RecipeMatchResult(boolean match, boolean craftable) {
+			// TODO Auto-generated constructor stub
+        	this.match = match;
+        	this.craftable = craftable;
+		}
+		public boolean isMatch() {
+			return match;
+		}
+		public boolean isCraftable() {
+			return craftable;
+		}
+		private final boolean match;
         private final boolean craftable;
     }
 
@@ -185,5 +204,21 @@ public abstract class GastroRecipe {
     public static boolean componentMatches(RecipeComponent<?> component, ItemStack item) {
         return component == null ? item == null || item.getType() == Material.AIR : component.matches(item);
     }
+
+	public GastroRecipeType getRecipeType() {
+		return recipeType;
+	}
+
+	public RecipeInput getInputs() {
+		return inputs;
+	}
+
+	public Set<ItemStack> getTools() {
+		return tools;
+	}
+
+	public ItemStack[] getOutputs() {
+		return outputs;
+	}
 
 }

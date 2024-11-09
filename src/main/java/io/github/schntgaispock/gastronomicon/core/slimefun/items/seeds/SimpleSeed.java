@@ -18,6 +18,7 @@ import org.bukkit.block.data.Ageable;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -119,7 +120,12 @@ public class SimpleSeed extends AbstractSeed {
         }
     }
 
-    @Override
+    private @NotNull Material getDisplayBlock() {
+		// TODO Auto-generated method stub
+		return displayBlock;
+	}
+
+	@Override
     public List<ItemStack> getHarvestDrops(BlockState b, ItemStack item, boolean brokenByPlayer) {
         final List<ItemStack> drops = new ArrayList<>();
         if (!brokenByPlayer) {
@@ -131,7 +137,7 @@ public class SimpleSeed extends AbstractSeed {
         }
 
         final int sickleTier = ItemUtil.getSickleTier(item);
-        final int fortuneLevel = item.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS);
+        final int fortuneLevel = item.getEnchantmentLevel(Enchantment.LOOTING);
 
         final ItemStack seed = getItem().clone();
         seed.setAmount(NumberUtil.getFortuneAmount(fortuneLevel, sickleTier, 2));

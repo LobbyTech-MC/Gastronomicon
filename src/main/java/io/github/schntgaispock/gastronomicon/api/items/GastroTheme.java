@@ -24,4 +24,14 @@ public enum GastroTheme {
     GastroTheme(String color) {
         this(color, "#aaaaaa");
     }
+
+    ChatColor getLoreColor() {
+		// TODO Auto-generated method stub
+		return loreColor;
+	}
+
+    public ChatColor getColor() {
+		// TODO Auto-generated method stub
+		return color;
+	}
 }

@@ -56,7 +56,7 @@ public class CropSeed extends SimpleSeed {
         }
         
         final int sickleTier = ItemUtil.getSickleTier(item);
-        final int fortuneLevel = item.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS);
+        final int fortuneLevel = item.getEnchantmentLevel(Enchantment.LOOTING);
 
         final ItemStack seed = getItem().clone();
         seed.setAmount(NumberUtil.getFortuneAmount(fortuneLevel, sickleTier, 1));
@@ -70,4 +70,9 @@ public class CropSeed extends SimpleSeed {
 
         return drops;
     }
+
+	private Map<ItemStack, Double> getGrownCrops() {
+		// TODO Auto-generated method stub
+		return grownCrops;
+	}
 }

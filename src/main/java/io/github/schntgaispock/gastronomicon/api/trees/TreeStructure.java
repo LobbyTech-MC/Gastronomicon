@@ -4,8 +4,6 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import net.guizhanss.guizhanlib.slimefun.utils.NewBlockStorageUtil;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -21,6 +19,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerHead;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerSkin;
 import lombok.Getter;
 import lombok.ToString;
+import net.guizhanss.guizhanlib.slimefun.utils.NewBlockStorageUtil;
 
 @Getter
 @ToString
@@ -29,7 +28,7 @@ public final class TreeStructure {
     private static final ObjectMapper JSONObjectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
     private static final String TREE_SCHEMATIC_PATH = "plugins/Gastronomicon/schematics/";
 
-    private static final @Getter Map<String, TreeStructure> loadedTrees = new HashMap<>();
+    private static final Map<String, TreeStructure> loadedTrees = new HashMap<>();
 
     public static void loadTrees() {
         final File treePath = new File(TREE_SCHEMATIC_PATH);
@@ -104,4 +103,29 @@ public final class TreeStructure {
             }
         }
     }
+
+	public int[][][] getBlocks() {
+		return blocks;
+	}
+
+	public String getSapling() {
+		return sapling;
+	}
+
+	public String getFruit() {
+		return fruit;
+	}
+
+	public String[] getPalette() {
+		return palette;
+	}
+
+	public int[] getRoot() {
+		return root;
+	}
+
+	public static Map<String, TreeStructure> getLoadedTrees() {
+		// TODO Auto-generated method stub
+		return loadedTrees;
+	}
 }

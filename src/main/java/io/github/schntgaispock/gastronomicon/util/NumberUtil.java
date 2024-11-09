@@ -58,4 +58,9 @@ public class NumberUtil {
         return baseAmount + ThreadLocalRandom.current().nextInt(fortuneLevel, 1 + (int) Math.ceil(fortuneLevel * 1.5));
     }
 
+	public static ThreadLocalRandom getRandom() {
+		// TODO Auto-generated method stub
+		return random;
+	}
+
 }

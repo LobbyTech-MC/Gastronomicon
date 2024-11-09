@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerEvent;
+import org.jetbrains.annotations.NotNull;
 
 import io.github.schntgaispock.gastronomicon.api.recipes.GastroRecipe;
 import lombok.Getter;
@@ -33,5 +34,26 @@ public class PlayerGastroFoodCraftEvent extends PlayerEvent implements Cancellab
     public HandlerList getHandlers() {
         return handlerList;
     }
+
+	@Override
+	public boolean isCancelled() {
+		// TODO Auto-generated method stub
+		return cancelled;
+	}
+
+	@Override
+	public void setCancelled(boolean cancel) {
+		// TODO Auto-generated method stub
+		this.cancelled = true;
+	}
+
+	public GastroRecipe getRecipe() {
+		return recipe;
+	}
+
+	public @NotNull String getMessage() {
+		// TODO Auto-generated method stub
+		return message;
+	}
 
 }

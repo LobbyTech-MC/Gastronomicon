@@ -72,4 +72,19 @@ public class RecipeInput {
         return hash;
     }
 
+	public RecipeComponent<?>[] getIngredients() {
+		// TODO Auto-generated method stub
+		return ingredients;
+	}
+
+	public RecipeComponent<?> getContainer() {
+		// TODO Auto-generated method stub
+		return container;
+	}
+
+	public RecipeShape getShapedness() {
+		// TODO Auto-generated method stub
+		return shapedness;
+	}
+
 }

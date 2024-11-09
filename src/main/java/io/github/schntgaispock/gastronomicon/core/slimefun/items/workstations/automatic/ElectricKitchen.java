@@ -295,4 +295,20 @@ public class ElectricKitchen extends AContainer {
             }
         }
     }
+
+	@Override
+	public ItemStack getProgressBar() {
+		// TODO Auto-generated method stub
+		return progressBar;
+	}
+
+	@Override
+	public String getMachineIdentifier() {
+		// TODO Auto-generated method stub
+		return machineIdentifier;
+	}
+
+	public EnergyNetComponentType getEnergyComponentType() {
+		return energyComponentType;
+	}
 }

@@ -147,4 +147,16 @@ public class ChefAndroidTrainer extends MenuBlock {
         });
     }
 
+	@Override
+	protected int[] getInputSlots() {
+		// TODO Auto-generated method stub
+		return inputSlots;
+	}
+
+	@Override
+	protected int[] getOutputSlots() {
+		// TODO Auto-generated method stub
+		return outputSlots;
+	}
+
 }

@@ -81,4 +81,8 @@ public class SimpleGastroFood extends UnplaceableSolid implements RecipeDisplayI
         return Arrays.asList(display);
     }
 
+	public GastroRecipe getGastroRecipe() {
+		return gastroRecipe;
+	}
+
 }
