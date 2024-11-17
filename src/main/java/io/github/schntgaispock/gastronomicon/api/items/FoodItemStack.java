@@ -120,13 +120,11 @@ public class FoodItemStack extends SlimefunItemStack {
             effects, perfectLore, perfectLore, true);
     }
 
-	private String getTexture() {
-		// TODO Auto-generated method stub
+    public String getTexture() {
 		return texture;
 	}
 
-	private boolean isPerfect() {
-		// TODO Auto-generated method stub
+    public boolean isPerfect() {
 		return perfect;
 	}
 }
