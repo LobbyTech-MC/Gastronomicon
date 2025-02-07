@@ -1,13 +1,14 @@
 package io.github.schntgaispock.gastronomicon.core.listeners;
 
-import io.github.schntgaispock.gastronomicon.Gastronomicon;
-import io.github.schntgaispock.gastronomicon.api.trees.TreeStructure;
-import net.guizhanss.guizhanlib.slimefun.utils.NewBlockStorageUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.StructureGrowEvent;
+
+import io.github.schntgaispock.gastronomicon.Gastronomicon;
+import io.github.schntgaispock.gastronomicon.api.trees.TreeStructure;
+import net.guizhanss.guizhanlib.slimefun.utils.NewBlockStorageUtil;
 
 public class TreeGrowthListener implements Listener {
 

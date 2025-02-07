@@ -2,8 +2,9 @@ package io.github.schntgaispock.gastronomicon.integration;
 
 import java.util.List;
 
-import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 import org.bukkit.inventory.ItemStack;
+
+import com.xzavier0722.mc.plugin.slimefun4.storage.util.StorageCacheUtils;
 
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.workstations.automatic.ElectricKitchen;
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.workstations.automatic.FishingNet;

@@ -1,10 +1,10 @@
 package io.github.schntgaispock.gastronomicon;
 
+import java.util.logging.Level;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import net.guizhanss.guizhanlib.slimefun.addon.Scheduler;
-import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
@@ -17,18 +17,18 @@ import io.github.mooy1.infinitylib.core.AbstractAddon;
 import io.github.mooy1.infinitylib.core.AddonConfig;
 import io.github.schntgaispock.gastronomicon.api.trees.TreeStructure;
 import io.github.schntgaispock.gastronomicon.core.setup.CommandSetup;
+import io.github.schntgaispock.gastronomicon.core.setup.ItemSetup;
 import io.github.schntgaispock.gastronomicon.core.setup.ListenerSetup;
 import io.github.schntgaispock.gastronomicon.core.setup.ResearchSetup;
-import io.github.schntgaispock.gastronomicon.core.setup.ItemSetup;
 import io.github.schntgaispock.gastronomicon.integration.DynaTechSetup;
 import io.github.schntgaispock.gastronomicon.integration.SlimeHUDSetup;
 import io.github.schntgaispock.gastronomicon.util.StringUtil;
 import lombok.Getter;
+import net.guizhanss.guizhanlib.slimefun.addon.Scheduler;
+import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
-
-import java.util.logging.Level;
 
 @Getter
 public class Gastronomicon extends AbstractAddon {
