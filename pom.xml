@@ -55,6 +55,10 @@
                     <minimizeJar>true</minimizeJar>
                     <relocations>
                         <relocation>
+                            <pattern>io.github.mooy1.infinitylib</pattern>
+                            <shadedPattern>io.github.schntgaispock.infinitylib</shadedPattern>
+                        </relocation>
+                        <relocation>
                             <pattern>org.bstats</pattern>
                             <shadedPattern>io.github.schntgaispock.bstats</shadedPattern>
                         </relocation>
